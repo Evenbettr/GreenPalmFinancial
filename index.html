@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Baker Financial Strategies | Clarity for Your Finances</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Straightforward, no-obligation financial guidance designed to help you make smarter decisions—now and long term."
-  />
+  <title>Baker Financial Strategies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-alt: #020617;
-      --card-bg: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
-      --text: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.25);
-      --danger: #f97373;
-      --max-width: 1080px;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.9);
+      --bg-dark: #050505;
+      --bg-darker: #020202;
+      --accent: #f5f0e8;
+      --accent-soft: #f0ebe3;
+      --button-bg: #ffffff;
+      --button-text: #111111;
+      --text-main: #f7f7f7;
+      --text-muted: #c1c1c1;
+      --nav-height: 80px;
     }
 
     * {
@@ -31,13 +29,15 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #1f2933, #020617 55%);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
     }
 
     a {
@@ -45,920 +45,466 @@
       text-decoration: none;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
     /* NAVBAR */
 
-    header {
-      position: sticky;
+    .navbar {
+      position: fixed;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.7),
-        transparent
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-    }
-
-    .nav-inner {
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(0,0,0,0.92);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
-      padding: 0.75rem 1.25rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
+      padding: 0 64px;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .brand {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .brand-mark {
-      width: 32px;
-      height: 32px;
+    .logo-mark {
+      width: 48px;
+      height: 48px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #38bdf8, #0f172a 70%);
+      border: 2px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3);
-      font-size: 0.85rem;
+      font-size: 20px;
       font-weight: 600;
-      color: #e5f3ff;
+      letter-spacing: 1px;
     }
 
-    .brand-text {
+    .logo-text {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-center {
       display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
+      gap: 28px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .brand-name {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 0.98rem;
+    .nav-center a {
+      position: relative;
+      padding-bottom: 4px;
     }
 
-    .brand-tagline {
-      font-size: 0.75rem;
-      color: var(--text-muted);
+    .nav-center a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #ffffff;
+      transition: width 0.2s ease;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      font-size: 0.9rem;
+    .nav-center a:hover::after {
+      width: 100%;
     }
 
-    .nav-links a {
-      color: var(--text-muted);
-      padding: 0.25rem 0;
-      border-bottom: 1px solid transparent;
-      transition: color 0.18s ease, border-color 0.18s ease;
-    }
-
-    .nav-links a[data-active="true"] {
-      color: var(--text);
-      border-color: var(--accent);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      padding: 0.4rem 0.95rem;
+    .nav-right .btn-outline {
+      padding: 10px 24px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.8rem;
-      color: #e5edf7;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: radial-gradient(circle at top, rgba(148, 163, 184, 0.25), transparent 65%);
+      border: 1px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .nav-cta span {
-      font-size: 0.95em;
-    }
-
-    .nav-cta svg {
-      width: 13px;
-      height: 13px;
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
+    .nav-right .btn-outline:hover {
+      background: #ffffff;
+      color: #000000;
     }
 
     /* HERO */
 
-    main {
-      flex: 1;
-    }
-
     .hero {
-      padding-top: 2.25rem;
-      padding-bottom: 2.25rem;
-    }
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.7fr);
-      gap: 2.25rem;
+      /* <<< PUT YOUR FICTITIOUS NIGHT CITY IMAGE HERE >>> */
+      background-image: url("bfs-city-night.jpg");
+      /* a fictitious major city skyline at night, clear sky full of stars */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
       align-items: center;
+      justify-content: center;
+      color: var(--text-main);
     }
 
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.92));
     }
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.75rem;
-      padding: 0.18rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.18), transparent 58%);
-    }
-
-    .hero-kicker-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.22);
+    .hero-inner {
+      position: relative;
+      max-width: 900px;
+      padding: 0 32px;
+      text-align: center;
+      margin-top: var(--nav-height);
     }
 
     .hero-title {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      line-height: 1.12;
-      margin-bottom: 0.85rem;
-      letter-spacing: 0.01em;
-    }
-
-    .hero-title span {
-      color: var(--accent);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.06;
+      margin-bottom: 16px;
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 32rem;
-      margin-bottom: 1.4rem;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--accent-soft);
+      margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 1.1rem;
+      justify-content: center;
+      gap: 16px;
     }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.4rem;
+      padding: 14px 32px;
       border-radius: 999px;
+      background: var(--button-bg);
+      color: var(--button-text);
       border: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       cursor: pointer;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: #0b1220;
-      font-weight: 600;
-      font-size: 0.92rem;
-      box-shadow: 0 14px 40px rgba(56, 189, 248, 0.35);
-      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
     }
 
-    .btn-primary svg {
-      width: 16px;
-      height: 16px;
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+      background: #f7f7f7;
     }
 
     .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.6rem 1.05rem;
+      padding: 14px 28px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.6));
-      cursor: pointer;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .btn-ghost svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .hero-footnote {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .hero-footnote strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* HERO CARD */
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.04), rgba(15, 23, 42, 0.98));
-      border-radius: var(--radius-lg);
-      padding: 1.4rem 1.35rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card-label {
-      font-size: 0.75rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.7);
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
     }
 
-    .hero-card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
     }
 
-    .hero-card-text {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
+    /* MAIN CONTENT */
 
-    .hero-card-list {
-      list-style: none;
-      display: grid;
-      gap: 0.4rem;
-      margin-bottom: 0.9rem;
+    main {
+      background: #f7f7f7;
+      color: #111111;
     }
-
-    .hero-card-list li {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 0.35rem;
-      align-items: flex-start;
-    }
-
-    .hero-card-list span.bullet {
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      margin-top: 0.16rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.6rem;
-      color: var(--accent);
-    }
-
-    .hero-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: 0.3rem;
-    }
-
-    .hero-card-meta {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .hero-card-meta strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .hero-card-tag {
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.8);
-      white-space: nowrap;
-    }
-
-    @media (max-width: 900px) {
-      .hero-card {
-        order: -1;
-      }
-    }
-
-    /* SECTIONS */
 
     section {
-      margin-bottom: 2.4rem;
+      padding: 72px 64px;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
+    section:nth-of-type(odd) {
+      background: #f7f7f7;
+    }
+
+    section:nth-of-type(even) {
+      background: #efefef;
     }
 
     .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      margin-bottom: 18px;
+      text-align: center;
     }
 
-    .section-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 38rem;
+    .section-subtitle {
+      font-size: 15px;
+      color: #555555;
+      max-width: 640px;
+      line-height: 1.6;
+      margin: 0 auto 32px;
+      text-align: center;
     }
 
-    .problem-grid {
+    .grid-3 {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-      margin-top: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
     }
 
-    @media (max-width: 900px) {
-      .problem-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      text-align: left;
     }
 
-    .problem-card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      padding: 1rem 1.1rem;
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
-    .problem-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
+    .card p {
+      font-size: 14px;
+      color: #555555;
+      line-height: 1.6;
     }
 
-    .problem-list {
-      list-style: none;
-      display: grid;
-      gap: 0.45rem;
-      font-size: 0.86rem;
+    .disclaimer {
+      background: var(--bg-darker);
       color: var(--text-muted);
+      padding: 40px 24px 56px;
+      font-size: 11px;
+      line-height: 1.6;
     }
 
-    .problem-list li::before {
-      content: "•";
-      margin-right: 0.4rem;
-      color: var(--accent);
-    }
-
-    .problem-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.65rem;
-    }
-
-    .problem-note span {
-      color: #e5e7eb;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-    }
-
-    .pill {
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.8);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 720px) {
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .service-card {
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      padding: 0.9rem 1rem;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
-    }
-
-    .service-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .service-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1.1rem;
-    }
-
-    @media (max-width: 900px) {
-      .process-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .step-card {
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      padding: 0.9rem 1rem;
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .step-number {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .step-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .step-card p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .center-cta {
-      margin-top: 1.1rem;
-    }
-
-    .center-cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.86rem;
-      color: var(--accent);
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
-      gap: 1.6rem;
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .trust-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .trust-card {
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      padding: 0.95rem 1.05rem;
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .trust-list {
-      list-style: none;
-      display: grid;
-      gap: 0.45rem;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .trust-list li::before {
-      content: "✓";
-      color: var(--accent);
-      margin-right: 0.35rem;
-    }
-
-    .even-if {
-      margin-top: 0.8rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .even-if p + p {
-      margin-top: 0.15rem;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.25);
-      padding: 1.2rem 1.25rem 1.8rem;
-      margin-top: auto;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
+    .disclaimer-inner {
+      max-width: 1120px;
       margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.7rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
+    .disclaimer h4 {
+      color: #f0f0f0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
     }
 
-    .footer-links a {
-      color: var(--text-muted);
+    .disclaimer p + p {
+      margin-top: 10px;
     }
 
-    .footer-links a:hover {
-      color: var(--accent);
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 0 20px;
+      }
+      .nav-center {
+        display: none; /* hide center links on mobile */
+      }
+      section {
+        padding: 56px 20px;
+      }
+      .hero-inner {
+        padding: 0 20px;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
+      .card {
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- NAVBAR -->
-    <header>
-      <div class="nav-inner">
-        <a href="#" class="brand" aria-label="Baker Financial Strategies Home">
-          <div class="brand-mark">B</div>
-          <div class="brand-text">
-            <div class="brand-name">Baker Financial Strategies</div>
-            <div class="brand-tagline">Clarity • Confidence • Legacy</div>
-          </div>
-        </a>
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#" data-active="true">Clients</a>
-          <a href="/careers">Careers</a>
-          <a href="/ethos">Ethos</a>
-          <a href="/login">Client Login</a>
-          <a
-            href="https://calendly.com/your-calendly-link"
-            class="nav-cta"
-          >
-            <span>Free Financial Review</span>
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path
-                d="M5 10.5h7.3L9 13.8a1 1 0 1 0 1.4 1.4l4.4-4.4a1 1 0 0 0 0-1.4L10.4 5a1 1 0 1 0-1.4 1.4l3.3 3.3H5a1 1 0 0 0 0 2Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-        </nav>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-mark">BF</div>
+      <div class="logo-text">Baker Financial</div>
+    </div>
+
+    <nav class="nav-center">
+      <a href="#home">Home</a>
+      <a href="#mission">Mission</a>
+      <a href="#services">Our Services</a>
+      <a href="#carriers">Carriers</a>
+      <a href="#income">Income Opportunities</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#contact"><button class="btn-outline">Contact Us</button></a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">Baker Financial Strategies</h1>
+      <p class="hero-subtitle">
+        Empower Your Financial Future Today.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact"><button class="btn-primary">Get in Touch</button></a>
+        <a href="#services"><button class="btn-ghost">Our Services</button></a>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main>
-      <div class="shell">
-        <!-- HERO -->
-        <section class="hero" id="top">
-          <div class="hero-grid">
-            <div>
-              <div class="hero-kicker">
-                <div class="hero-kicker-dot"></div>
-                <span>Clarity over complexity</span>
-              </div>
-              <h1 class="hero-title">
-                Clarity for Your Finances.<br />
-                <span>Confidence for Your Future.</span>
-              </h1>
-              <p class="hero-subtitle">
-                Straightforward, no-obligation financial guidance designed to help you make smarter decisions—now and long term.
-              </p>
-              <div class="hero-actions">
-                <a
-                  href="https://calendly.com/your-calendly-link"
-                  class="btn-primary"
-                >
-                  <span>Schedule a Free Financial Review</span>
-                  <svg viewBox="0 0 20 20" aria-hidden="true">
-                    <path
-                      d="M5 10.5h7.3L9 13.8a1 1 0 1 0 1.4 1.4l4.4-4.4a1 1 0 0 0 0-1.4L10.4 5a1 1 0 1 0-1.4 1.4l3.3 3.3H5a1 1 0 0 0 0 2Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-                <a href="#process" class="btn-ghost">
-                  <svg viewBox="0 0 20 20" aria-hidden="true">
-                    <path
-                      d="M10 4a1 1 0 0 1 1 1v4.3l2.3 2.3a1 1 0 0 1-1.4 1.4l-2.7-2.7A1 1 0 0 1 9 9.7V5a1 1 0 0 1 1-1Z"
-                      fill="currentColor"
-                    />
-                    <circle
-                      cx="10"
-                      cy="10"
-                      r="7"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                    />
-                  </svg>
-                  <span>How it works</span>
-                </a>
-              </div>
-              <p class="hero-footnote">
-                <strong>No pressure. No obligation.</strong> Just a clear picture of where you stand and what’s possible.
-              </p>
-            </div>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- MISSION -->
+    <section id="mission">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="section-subtitle">
+        Baker Financial Strategies exists to help working families and professionals make confident,
+        informed decisions about money, protection, and long-term planning – without the hard sell.
+      </p>
+    </section>
 
-            <!-- HERO SIDE CARD -->
-            <aside class="hero-card" aria-label="Common financial concerns">
-              <div class="hero-card-inner">
-                <div class="hero-card-label">Most people don’t need more products</div>
-                <div class="hero-card-title">They need a plan that makes sense.</div>
-                <p class="hero-card-text">
-                  If you’re not sure you’re on track, you’re not alone. These are the questions we hear every day:
-                </p>
-                <ul class="hero-card-list">
-                  <li>
-                    <span class="bullet">?</span>
-                    <span>“Am I actually set up for retirement—or just hoping it works out?”</span>
-                  </li>
-                  <li>
-                    <span class="bullet">?</span>
-                    <span>“What happens to my family if something happens to me?”</span>
-                  </li>
-                  <li>
-                    <span class="bullet">?</span>
-                    <span>“I read a lot online. How do I know what actually fits my situation?”</span>
-                  </li>
-                </ul>
-                <div class="hero-card-footer">
-                  <div class="hero-card-meta">
-                    Financial stress usually comes from<br />
-                    <strong>uncertainty, not income.</strong>
-                  </div>
-                  <div class="hero-card-tag">Clarity first. Products second.</div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        Whether you are starting fresh or reviewing plans you set up years ago, we focus on strategy first,
+        then products – so every move supports your real life.
+      </p>
 
-        <!-- PROBLEM SECTION -->
-        <section id="problems">
-          <div class="section-label">The real problem</div>
-          <h2 class="section-title">It’s hard to feel confident when you don’t have a clear plan.</h2>
-          <p class="section-text">
-            You work hard for your money. But between market noise, conflicting opinions, and endless options, it’s easy to end up doing “something” without knowing if it’s the right thing.
+      <div class="grid-3">
+        <div class="card">
+          <h3>Financial Review</h3>
+          <p>
+            A clear snapshot of income, obligations, savings, and existing policies so your next steps are
+            based on facts, not guesswork.
           </p>
-
-          <div class="problem-grid">
-            <div class="problem-card">
-              <h3>You might recognize yourself if you’re:</h3>
-              <ul class="problem-list">
-                <li>Unsure if you’re really on track for retirement</li>
-                <li>Making financial decisions without a clear, written plan</li>
-                <li>Confused by conflicting advice from friends, social media, or the news</li>
-                <li>Wondering if you’re doing “enough” for your family and future</li>
-              </ul>
-              <p class="problem-note">
-                Financial stress often comes from <span>not knowing</span>, not from how much you make.
-              </p>
-            </div>
-            <div>
-              <p class="section-text">
-                Our job isn’t to overwhelm you with more choices. It’s to help you see the full picture, understand your options, and move forward with a plan that actually fits your life.
-              </p>
-              <div class="pill-row">
-                <div class="pill">Straightforward conversations</div>
-                <div class="pill">Plain-English explanations</div>
-                <div class="pill">No judgment, no pressure</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SERVICES SECTION -->
-        <section id="services">
-          <div class="section-label">How we help</div>
-          <h2 class="section-title">Guidance across the key areas that affect your future.</h2>
-          <p class="section-text">
-            We focus on long-term planning, protection, and legacy—so your decisions today support the life you want later.
+        </div>
+        <div class="card">
+          <h3>Life Insurance Strategies</h3>
+          <p>
+            Term and permanent life insurance options designed to protect income, pay off debts, and support
+            your family’s plans if the unexpected happens.
           </p>
-
-          <div class="services-grid">
-            <article class="service-card">
-              <h3>Retirement Planning</h3>
-              <p>Make sure your money lasts as long as you do, with income strategies designed to support your lifestyle and goals.</p>
-            </article>
-            <article class="service-card">
-              <h3>Legacy & Estate Conversations</h3>
-              <p>Plan for what happens to your assets, your family, and your wishes—so you’re not leaving it up to chance.</p>
-            </article>
-            <article class="service-card">
-              <h3>Life Insurance & Protection</h3>
-              <p>Protect the people who matter most, while also considering how life insurance fits into your broader wealth and legacy strategy.</p>
-            </article>
-            <article class="service-card">
-              <h3>Annuities & Income Strategies</h3>
-              <p>Explore options for stable, long-term income as part of a well-rounded retirement plan.</p>
-            </article>
-            <article class="service-card">
-              <h3>IUL & Tax-Advantaged Strategies</h3>
-              <p>Use modern tools, including indexed universal life, as part of a plan for growth, flexibility, and protection.</p>
-            </article>
-            <article class="service-card">
-              <h3>Long-Term Wealth Planning</h3>
-              <p>Coordinate the moving pieces so your decisions work together—not against each other—over time.</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- PROCESS SECTION -->
-        <section id="process">
-          <div class="section-label">How it works</div>
-          <h2 class="section-title">A simple, pressure-free way to get clarity.</h2>
-          <p class="section-text">
-            No sales scripts. No surprises. Just a clear conversation, a personalized view of where you stand, and guidance you can actually use.
+        </div>
+        <div class="card">
+          <h3>Ongoing Guidance</h3>
+          <p>
+            As life changes, so do your needs. We provide ongoing reviews to keep your coverage and strategy
+            aligned with your current season of life.
           </p>
-
-          <div class="process-grid">
-            <article class="step-card">
-              <div class="step-number">1</div>
-              <h3>Start with a Free Financial Review</h3>
-              <p>A no-obligation conversation to understand where you are today, what you have in place, and what you’d like to accomplish.</p>
-            </article>
-            <article class="step-card">
-              <div class="step-number">2</div>
-              <h3>Get Clear, Personalized Guidance</h3>
-              <p>We walk through what’s working, what may be missing, and what options make sense for your situation—in plain English.</p>
-            </article>
-            <article class="step-card">
-              <div class="step-number">3</div>
-              <h3>Move Forward with Confidence</h3>
-              <p>Whether you take action now or later, you leave with more clarity, more understanding, and a path you can feel good about.</p>
-            </article>
-          </div>
-
-          <div class="center-cta">
-            <a href="https://calendly.com/your-calendly-link">
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M5 10.5h7.3L9 13.8a1 1 0 1 0 1.4 1.4l4.4-4.4a1 1 0 0 0 0-1.4L10.4 5a1 1 0 1 0-1.4 1.4l3.3 3.3H5a1 1 0 0 0 0 2Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <span>Schedule your free review</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- TRUST SECTION -->
-        <section id="trust">
-          <div class="section-label">Why work with us</div>
-          <h2 class="section-title">Financial guidance that’s clear, honest, and pressure-free.</h2>
-          <p class="section-text">
-            Our goal is simple: help you understand your options, make smart decisions, and feel confident about the path you’re on—at your pace, not ours.
-          </p>
-
-          <div class="trust-grid">
-            <div class="trust-card">
-              <h3 style="font-size:0.9rem; margin-bottom:0.4rem;">Trusted guidance you can feel confident in:</h3>
-              <ul class="trust-list">
-                <li>Licensed, trained financial professionals</li>
-                <li>Education-focused, not product-driven</li>
-                <li>Confidential, judgment-free conversations</li>
-                <li>Clear explanations, not jargon</li>
-                <li>Ongoing support as life and goals evolve</li>
-              </ul>
-            </div>
-            <div>
-              <div class="section-text" style="margin-bottom:0.5rem;">
-                We work with individuals, families, and small business owners who want more than quick tips—they want a plan they can actually understand and stick with.
-              </div>
-              <div class="even-if">
-                <p>Even if you’ve never worked with a financial professional before.</p>
-                <p>Even if you’re not sure what you need yet.</p>
-                <p>Even if you’ve been putting this off for years.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- BOTTOM CTA -->
-        <section id="cta">
-          <div class="problem-card">
-            <h3 style="margin-bottom:0.3rem;">Get clarity. Build confidence. Plan smarter.</h3>
-            <p class="section-text" style="margin-bottom:0.75rem;">
-              If you’re ready to take the guesswork out of your financial decisions, a simple conversation is the best place to start.
-            </p>
-            <a
-              href="https://calendly.com/your-calendly-link"
-              class="btn-primary"
-            >
-              <span>Schedule Your Free Financial Review</span>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M5 10.5h7.3L9 13.8a1 1 0 1 0 1.4 1.4l4.4-4.4a1 1 0 0 0 0-1.4L10.4 5a1 1 0 1 0-1.4 1.4l3.3 3.3H5a1 1 0 0 0 0 2Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-            <p class="hero-footnote" style="margin-top:0.6rem;">
-              No obligation. No hard sell. Just a clearer view of where you stand.
-            </p>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Baker Financial Strategies. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="/ethos">Ethos</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/disclosures">Disclosures</a>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- CARRIERS -->
+    <section id="carriers">
+      <h2 class="section-title">Our Carriers</h2>
+      <p class="section-subtitle">
+        Through The Broker Group, Baker Financial Strategies works with a range of reputable carriers.
+        This flexibility allows us to match your needs with the company and product that fit best.
+      </p>
+      <!-- Add carrier logos here if you want -->
+    </section>
+
+    <!-- INCOME OPPORTUNITIES -->
+    <section id="income">
+      <h2 class="section-title">Income Opportunities</h2>
+      <p class="section-subtitle">
+        Interested in learning the business side of financial protection and planning? Baker Financial
+        Strategies collaborates with individuals looking to build part-time or full-time careers in the
+        industry under The Broker Group’s platform.
+      </p>
+      <p class="section-subtitle">
+        Mention “Income Opportunities” when you reach out and we’ll share more about training,
+        expectations, and support.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">
+        Have questions or ready to schedule a conversation? Use the form below and we’ll respond as soon as possible.
+      </p>
+
+      <form class="card" style="max-width:600px; margin: 24px auto 0;">
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div>
+            <label for="name" style="font-size:13px; font-weight:500;">Name</label><br />
+            <input id="name" type="text" name="name" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
+          </div>
+          <div>
+            <label for="email" style="font-size:13px; font-weight:500;">Email</label><br />
+            <input id="email" type="email" name="email" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
+          </div>
+          <div>
+            <label for="state" style="font-size:13px; font-weight:500;">State of Residence</label><br />
+            <input id="state" type="text" name="state" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
+          </div>
+          <div>
+            <label for="message" style="font-size:13px; font-weight:500;">How can we help?</label><br />
+            <textarea id="message" name="message" rows="4" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- DISCLAIMER -->
+  <footer class="disclaimer">
+    <div class="disclaimer-inner">
+      <h4>Disclaimer</h4>
+      <p>
+        Baker Financial Strategies is an independently operated organization comprised of licensed financial
+        professionals who are associated with The Broker Group LLC. Baker Financial Strategies is not an
+        affiliated company of The Broker Group LLC. The Broker Group LLC does not provide tax or legal advice.
+      </p>
+      <p>
+        The material presented is for educational and informational purposes only, is not intended as specific
+        advice for any individual or entity, and should not be construed as an offer or solicitation for the
+        purchase or sale of any financial product or service. All strategies and considerations may not be
+        suitable for all investors or households. Product availability and features may vary by state and carrier.
+      </p>
+      <p>
+        Baker is licensed to offer life insurance in the following states: [LIST STATES HERE]. Services and
+        recommendations are provided through The Broker Group LLC. Please consult with your tax or legal
+        professional for guidance on your specific situation.
+      </p>
+      <p style="margin-top:18px;">
+        &copy; <span id="year"></span> Baker Financial Strategies. All rights reserved.
+      </p>
+    </div>
+  </footer>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
