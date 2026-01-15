@@ -45,7 +45,7 @@
       text-decoration: none;
     }
 
-    /* NAVBAR */
+    /* NAVBAR (logo only) */
 
     .navbar {
       position: fixed;
@@ -56,7 +56,7 @@
       background: rgba(0,0,0,0.92);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding: 0 64px;
       z-index: 100;
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -88,52 +88,6 @@
       text-transform: uppercase;
     }
 
-    .nav-center {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .nav-center a {
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    .nav-center a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: #ffffff;
-      transition: width 0.2s ease;
-    }
-
-    .nav-center a:hover::after {
-      width: 100%;
-    }
-
-    .nav-right .btn-outline {
-      padding: 10px 24px;
-      border-radius: 999px;
-      border: 1px solid #ffffff;
-      background: transparent;
-      color: #ffffff;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-right .btn-outline:hover {
-      background: #ffffff;
-      color: #000000;
-    }
-
     /* HERO */
 
     .hero {
@@ -141,9 +95,8 @@
       height: 100vh;
       min-height: 640px;
 
-      /* <<< PUT YOUR FICTITIOUS NIGHT CITY IMAGE HERE >>> */
+      /* fictitious major city at night, clear skies */
       background-image: url("bfs-city-night.jpg");
-      /* a fictitious major city skyline at night, clear sky full of stars */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -167,14 +120,14 @@
       position: relative;
       max-width: 900px;
       padding: 0 32px;
-      text-align: center;
       margin-top: var(--nav-height);
+      text-align: center;
     }
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 1.06;
+      font-size: clamp(36px, 4.5vw, 54px);
+      line-height: 1.1;
       margin-bottom: 16px;
     }
 
@@ -182,13 +135,51 @@
       font-size: 18px;
       font-weight: 300;
       color: var(--accent-soft);
-      margin-bottom: 32px;
+      margin-bottom: 18px;
+    }
+
+    .hero-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--accent-soft);
+      margin: 12px 0 20px;
+      line-height: 1.5;
+    }
+
+    .hero-bullets, .hero-steps {
+      text-align: left;
+      margin: 12px auto 20px;
+      max-width: 720px;
+      color: var(--accent-soft);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.55;
+      padding-left: 20px;
+    }
+
+    .hero-bullets li,
+    .hero-steps li {
+      margin: 6px 0;
+    }
+
+    .hero-subheading {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 28px 0 12px;
+      color: var(--text-main);
+      text-align: left;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-actions {
       display: flex;
       justify-content: center;
       gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
     }
 
     .btn-primary {
@@ -229,68 +220,7 @@
       background: rgba(255,255,255,0.1);
     }
 
-    /* MAIN CONTENT */
-
-    main {
-      background: #f7f7f7;
-      color: #111111;
-    }
-
-    section {
-      padding: 72px 64px;
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    section:nth-of-type(odd) {
-      background: #f7f7f7;
-    }
-
-    section:nth-of-type(even) {
-      background: #efefef;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      font-size: 15px;
-      color: #555555;
-      max-width: 640px;
-      line-height: 1.6;
-      margin: 0 auto 32px;
-      text-align: center;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
-      text-align: left;
-    }
-
-    .card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #555555;
-      line-height: 1.6;
-    }
+    /* DISCLAIMER FOOTER */
 
     .disclaimer {
       background: var(--bg-darker);
@@ -321,20 +251,12 @@
       .navbar {
         padding: 0 20px;
       }
-      .nav-center {
-        display: none; /* hide center links on mobile */
-      }
-      section {
-        padding: 56px 20px;
-      }
       .hero-inner {
         padding: 0 20px;
       }
       .hero-actions {
         flex-direction: column;
-      }
-      .card {
-        text-align: left;
+        align-items: center;
       }
     }
   </style>
@@ -345,136 +267,67 @@
   <header class="navbar">
     <div class="nav-left">
       <div class="logo-mark">BF</div>
-      <div class="logo-text">Baker Financial</div>
-    </div>
-
-    <nav class="nav-center">
-      <a href="#home">Home</a>
-      <a href="#mission">Mission</a>
-      <a href="#services">Our Services</a>
-      <a href="#carriers">Carriers</a>
-      <a href="#income">Income Opportunities</a>
-    </nav>
-
-    <div class="nav-right">
-      <a href="#contact"><button class="btn-outline">Contact Us</button></a>
+      <div class="logo-text">Baker Financial Strategies</div>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (all the copy you gave me) -->
   <section id="home" class="hero">
     <div class="hero-inner">
-      <h1 class="hero-title">Baker Financial Strategies</h1>
+
+      <h1 class="hero-title">
+        Clarity for Your Finances.<br/>
+        Confidence for Your Future.
+      </h1>
+
       <p class="hero-subtitle">
-        Empower Your Financial Future Today.
+        Straightforward, no-obligation financial guidance designed to help you make smarter decisions—now and long term.
       </p>
+
+      <p class="hero-body">
+        Most people don’t need more financial products—they need clarity.
+      </p>
+
+      <ul class="hero-bullets">
+        <li>Unsure if you’re on track for the future</li>
+        <li>Making financial decisions without a clear plan</li>
+        <li>Confused by conflicting advice online</li>
+        <li>Wondering if you’re doing “enough”</li>
+      </ul>
+
+      <p class="hero-body">
+        Financial stress often comes from uncertainty, not income. Without clarity, it’s hard to move forward confidently.
+      </p>
+
+      <h3 class="hero-subheading">How It Works</h3>
+
+      <ol class="hero-steps">
+        <li><strong>Start with a Free Financial Review</strong> — A no-obligation conversation to understand where you are today.</li>
+        <li><strong>Get Clear, Personalized Guidance</strong> — Straightforward insight into what’s working and what needs attention.</li>
+        <li><strong>Move Forward with Confidence</strong> — Clarity and direction, whether you act now or later.</li>
+      </ol>
+
+      <h3 class="hero-subheading">Why Work With Me</h3>
+
+      <p class="hero-body">
+        Financial guidance should feel clear, honest, and pressure-free. I focus on education first, clear explanations, and long-term relationships so you can make confident decisions at your own pace.
+      </p>
+
+      <ul class="hero-bullets">
+        <li>Licensed and trained financial professional</li>
+        <li>Education-focused, not product-driven</li>
+        <li>Confidential, judgment-free conversations</li>
+        <li>Ongoing support as life and goals evolve</li>
+      </ul>
+
       <div class="hero-actions">
-        <a href="#contact"><button class="btn-primary">Get in Touch</button></a>
-        <a href="#services"><button class="btn-ghost">Our Services</button></a>
+        <a href="/clients"><button class="btn-primary">Clients</button></a>
+        <a href="/careers"><button class="btn-ghost">Careers</button></a>
+        <a href="/ethos"><button class="btn-ghost">Ethos</button></a>
       </div>
+
     </div>
   </section>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- MISSION -->
-    <section id="mission">
-      <h2 class="section-title">Our Mission</h2>
-      <p class="section-subtitle">
-        Baker Financial Strategies exists to help working families and professionals make confident,
-        informed decisions about money, protection, and long-term planning – without the hard sell.
-      </p>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">
-        Whether you are starting fresh or reviewing plans you set up years ago, we focus on strategy first,
-        then products – so every move supports your real life.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Financial Review</h3>
-          <p>
-            A clear snapshot of income, obligations, savings, and existing policies so your next steps are
-            based on facts, not guesswork.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Life Insurance Strategies</h3>
-          <p>
-            Term and permanent life insurance options designed to protect income, pay off debts, and support
-            your family’s plans if the unexpected happens.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Ongoing Guidance</h3>
-          <p>
-            As life changes, so do your needs. We provide ongoing reviews to keep your coverage and strategy
-            aligned with your current season of life.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CARRIERS -->
-    <section id="carriers">
-      <h2 class="section-title">Our Carriers</h2>
-      <p class="section-subtitle">
-        Through The Broker Group, Baker Financial Strategies works with a range of reputable carriers.
-        This flexibility allows us to match your needs with the company and product that fit best.
-      </p>
-      <!-- Add carrier logos here if you want -->
-    </section>
-
-    <!-- INCOME OPPORTUNITIES -->
-    <section id="income">
-      <h2 class="section-title">Income Opportunities</h2>
-      <p class="section-subtitle">
-        Interested in learning the business side of financial protection and planning? Baker Financial
-        Strategies collaborates with individuals looking to build part-time or full-time careers in the
-        industry under The Broker Group’s platform.
-      </p>
-      <p class="section-subtitle">
-        Mention “Income Opportunities” when you reach out and we’ll share more about training,
-        expectations, and support.
-      </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2 class="section-title">Contact Us</h2>
-      <p class="section-subtitle">
-        Have questions or ready to schedule a conversation? Use the form below and we’ll respond as soon as possible.
-      </p>
-
-      <form class="card" style="max-width:600px; margin: 24px auto 0;">
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <div>
-            <label for="name" style="font-size:13px; font-weight:500;">Name</label><br />
-            <input id="name" type="text" name="name" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
-          </div>
-          <div>
-            <label for="email" style="font-size:13px; font-weight:500;">Email</label><br />
-            <input id="email" type="email" name="email" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
-          </div>
-          <div>
-            <label for="state" style="font-size:13px; font-weight:500;">State of Residence</label><br />
-            <input id="state" type="text" name="state" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;" />
-          </div>
-          <div>
-            <label for="message" style="font-size:13px; font-weight:500;">How can we help?</label><br />
-            <textarea id="message" name="message" rows="4" style="width:100%; padding:10px 12px; margin-top:4px; border-radius:8px; border:1px solid #cccccc; font-size:14px;"></textarea>
-          </div>
-          <div>
-            <button type="submit" class="btn-primary">Submit</button>
-          </div>
-        </div>
-      </form>
-    </section>
-  </main>
 
   <!-- DISCLAIMER -->
   <footer class="disclaimer">
