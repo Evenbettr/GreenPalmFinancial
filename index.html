@@ -12,6 +12,66 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
+<head>
+  <!-- your existing head stuff -->
+
+  <style>
+    :root {
+      --chrome-bg: #05070b;
+      --chrome-mid: #12151c;
+      --chrome-light: rgba(255, 255, 255, 0.05);
+      --text-main: #e7e9ec;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--chrome-bg);
+      color: var(--text-main);
+      font-family: system-ui, sans-serif;
+      /* subtle chrome gradient */
+      background-image:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,.04) 0, transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(255,255,255,.03) 0, transparent 60%),
+        linear-gradient(135deg, #020308 0%, #111319 45%, #060811 100%);
+      background-attachment: fixed;
+    }
+
+    /* literal brushed effect */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.03) 0px,
+          rgba(255,255,255,0.03) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      opacity: 0.08;   /* dial: 0.04 → ghost, 0.13 → obvious */
+      mix-blend-mode: soft-light;
+    }
+
+    /* headers get a slight chrome highlight */
+    h1, h2, h3 {
+      color: var(--text-main);
+      text-shadow: 0 0 12px rgba(255,255,255,0.08);
+    }
+
+    a {
+      color: #78ffd4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
 
   <style>
     :root {
@@ -93,6 +153,7 @@
     }
 
     html,
+    
     body {
       height: 100%;
       scroll-behavior: smooth;
