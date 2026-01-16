@@ -43,7 +43,7 @@
         "Segoe UI", serif;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-size: 17px; /* base bump for readability */
+      font-size: 17px;
     }
 
     a {
@@ -130,6 +130,7 @@
       line-height: 1.05;
       margin-bottom: 22px;
       letter-spacing: 0.04em;
+      font-weight: 600; /* heavier for presence */
     }
 
     .hero-subtitle {
@@ -181,6 +182,11 @@
       color: #d5d4d2; /* soft silver */
     }
 
+    /* extra breathing room after bullets before next paragraph */
+    .hero-bullets + .hero-body {
+      margin-top: 30px;
+    }
+
     .hero-actions {
       display: flex;
       justify-content: center;
@@ -219,7 +225,7 @@
       background: rgba(0, 0, 0, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.9);
       color: #ffffff;
-      font-size: 13px;
+      font-size: 14px; /* up from 13 for legibility */
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -246,6 +252,11 @@
     .below-inner {
       max-width: 980px;
       margin: 0 auto;
+    }
+
+    /* slightly larger body in below section */
+    .below .hero-body {
+      font-size: 20px;
     }
 
     /* DISCLAIMER (if you add one later) */
@@ -306,6 +317,10 @@
       .hero-section-heading {
         font-size: 22px;
         text-align: left;
+      }
+
+      .below .hero-body {
+        font-size: 19px;
       }
     }
   </style>
