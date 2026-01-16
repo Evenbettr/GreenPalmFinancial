@@ -40,6 +40,48 @@
   text-transform: uppercase;
   letter-spacing: .04em;
 }
+.wss-line {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0 1rem 0;
+  font-size: 0.66rem;
+  opacity: 0.72;
+  color: inherit;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+.wss-line a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.wss-line a:hover {
+  opacity: 1;
+  border-bottom-style: solid;
+}
+
+.wss-line-qr {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 600px) {
+  .wss-line {
+    font-size: 0.6rem;
+    gap: 4px;
+  }
+  .wss-line-qr {
+    width: 16px;
+    height: 16px;
+  }
+}
 
     * {
       box-sizing: border-box;
@@ -439,7 +481,7 @@
       Please note: Links to external websites may be accessed through social media or digital communications. These external sites may contain information created and maintained by organizations independent of The Broker Group LLC. We do not endorse, guarantee, or certify the accuracy of information, products, or services contained on any third-party site. Information provided here or through linked sources is believed to be reliable but is not guaranteed as complete or accurate. All performance data cited is historical and not indicative of future results.
     </p>
 </div>
-<footer></footer>
+System.out.println();
 
 <div class="wss-line"><center>
   <span>Signals designed and maintained @</span>
