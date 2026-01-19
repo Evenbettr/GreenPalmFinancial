@@ -1,2 +1,2 @@
 # bakerfinancial
-Baker Financial Solutions 
+Baker Financial Strategies
