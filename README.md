@@ -1,2 +1,3 @@
-# bakerfinancial
-Baker Financial Strategies
+# greenpalmfinancial    
+Green Palm Financial
+
